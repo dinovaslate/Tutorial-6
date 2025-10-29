@@ -23,6 +23,18 @@ class FootballNewsApp extends StatelessWidget {
 class FootballNewsHomePage extends StatelessWidget {
   const FootballNewsHomePage({super.key});
 
+  void _showSnackBar(BuildContext context, String label) {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text('Kamu telah menekan tombol $label'),
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 2),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +108,8 @@ class FootballNewsHomePage extends StatelessWidget {
                     child: _ActionButton(
                       icon: Icons.article,
                       label: 'See Football News',
-                      onPressed: () {},
+                      onPressed: () =>
+                          _showSnackBar(context, 'See Football News'),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -104,7 +117,7 @@ class FootballNewsHomePage extends StatelessWidget {
                     child: _ActionButton(
                       icon: Icons.add,
                       label: 'Add News',
-                      onPressed: () {},
+                      onPressed: () => _showSnackBar(context, 'Add News'),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -112,7 +125,7 @@ class FootballNewsHomePage extends StatelessWidget {
                     child: _ActionButton(
                       icon: Icons.logout,
                       label: 'Logout',
-                      onPressed: () {},
+                      onPressed: () => _showSnackBar(context, 'Logout'),
                     ),
                   ),
                 ],

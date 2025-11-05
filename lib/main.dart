@@ -16,7 +16,7 @@ class FootballNewsApp extends StatelessWidget {
       title: 'Football News',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.indigo,
+          seedColor: const Color(0xFF3B82F6),
           brightness: Brightness.light,
         ),
         useMaterial3: true,
@@ -32,6 +32,15 @@ class FootballNewsApp extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           elevation: 4,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF3B82F6),
+          foregroundColor: Colors.white,
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+            color: Colors.white,
+          ),
         ),
       ),
       home: const MyHomePage(),

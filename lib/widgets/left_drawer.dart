@@ -14,25 +14,31 @@ class LeftDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           const DrawerHeader(
+            margin: EdgeInsets.zero,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Color(0xFF3B82F6),
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(40),
+              ),
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Football News',
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                Padding(padding: EdgeInsets.all(10)),
+                SizedBox(height: 10),
                 Text(
                   'Seluruh berita sepak bola terkini di sini!',
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.white,
@@ -43,8 +49,11 @@ class LeftDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.home_outlined),
-            title: const Text('Home'),
+            leading: const Icon(Icons.home_outlined, color: Colors.black87),
+            title: const Text(
+              'Home',
+              style: TextStyle(fontWeight: FontWeight.w500),
+            ),
             onTap: () {
               Navigator.pushReplacement(
                 context,
@@ -55,8 +64,11 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.post_add),
-            title: const Text('Add News'),
+            leading: const Icon(Icons.post_add, color: Colors.black87),
+            title: const Text(
+              'Add News',
+              style: TextStyle(fontWeight: FontWeight.w500),
+            ),
             onTap: () {
               Navigator.pushReplacement(
                 context,
@@ -67,8 +79,11 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.article_outlined),
-            title: const Text('See News'),
+            leading: const Icon(Icons.article_outlined, color: Colors.black87),
+            title: const Text(
+              'See Football News',
+              style: TextStyle(fontWeight: FontWeight.w500),
+            ),
             onTap: () {
               Navigator.pushReplacement(
                 context,

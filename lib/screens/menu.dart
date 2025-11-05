@@ -87,19 +87,54 @@ class MyHomePage extends StatelessWidget {
         builder: (context, constraints) {
           final crossAxisCount = constraints.maxWidth > 600 ? 3 : 1;
 
-          return GridView.count(
+          return SingleChildScrollView(
             padding: const EdgeInsets.all(16),
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-            childAspectRatio: 1.2,
-            children: [
-              for (final item in newsMenuItems)
-                NewsCard(
-                  item: item,
-                  onTap: () => _handleNavigation(context, item),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Informasi Mahasiswa',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 12),
+                        Text('Nama: Haekal Alexander Dinova'),
+                        Text('NPM: 2406352424'),
+                        Text('Kelas: PBP C'),
+                      ],
+                    ),
+                  ),
                 ),
-            ],
+                const SizedBox(height: 16),
+                GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: crossAxisCount,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: 1.2,
+                  children: [
+                    for (final item in newsMenuItems)
+                      NewsCard(
+                        item: item,
+                        onTap: () => _handleNavigation(context, item),
+                      ),
+                  ],
+                ),
+              ],
+            ),
           );
         },
       ),
